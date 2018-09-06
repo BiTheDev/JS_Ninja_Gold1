@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Ninja Gold</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type = "text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+</head>
+<body class="bg-primary">
+    <div id="container">
+        <p>Your Gold: <%= gold %></p>
+        <div id="center">
+        <form action="/process_money" method="post" id="one" class="bg-info">
+            <h4>Farm</h4>
+            <p>(earn 10 - 20 Golds) </p>
+            <input type="hidden" name="building" value="Farm" />
+            <input  class="btn btn-white" type="submit" name="Get_Gold" value="Get Gold" >
+        </form>
+        <form action="/process_money" method="POST" id="two" class="bg-info" >
+            <h4>Cave</h4>
+            <p>(earn 5 - 10 Golds) </p>
+            <input type="hidden" name="building" value="Cave" />
+            <input class="btn btn-white" type="submit" name="Get_Gold" value="Get Gold" >
+        </form>
+        <form action="/process_money" method="POST" id="three" class="bg-info">
+            <h4>House</h4>
+            <p>(earn 2 - 5 Golds) </p>
+            <input type="hidden" name="building" value="House" />
+            <input class="btn btn-white" type="submit" name="Get_Gold" value="Get Gold">
+        </form>
+        <form action="/process_money" method="POST" id="four" class="bg-info">
+            <h4>Casino</h4>
+            <p>(earn/takes 0 - 50 Golds) </p>
+            <input type="hidden" name="building" value="Casino" />
+            <input class="btn btn-white" type="submit" name="Get_Gold" value="Get Gold">
+        </form>
+        <form action="/process_money" id="result" method="GET">
+            <h6>Activite:</h6>
+            <div name="activity" id="activity">
+                <% for(var x in activity)  { %>
+                    <p><%= activity[x] %></p>
+                <% } %>
+            </div>
+        </form>
+        </div>
+        <a href="/reset">reset</a>
+    </div>
+</body>
+</html>
